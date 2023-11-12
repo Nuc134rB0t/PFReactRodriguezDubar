@@ -1,0 +1,10 @@
+.logo {
+  float: left;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  content: url('https://firebasestorage.googleapis.com/v0/b/reactpfrodriguezdubar.appspot.com/o/img%2Flogocut.png?alt=media&token=563073bf-2638-4a04-8262-32c0ed8d7a2c&_gl=1*q1shss*_ga*MTYwNjg5MTMyMC4xNjk4Mjc5NTg0*_ga_CW55HF8NVT*MTY5OTEzOTAxOS41LjEuMTY5OTE0MDAzNy42MC4wLjA.');
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}

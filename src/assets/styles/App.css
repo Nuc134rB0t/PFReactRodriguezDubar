@@ -1,0 +1,13 @@
+/** Custom CSS */
+.main__bg {
+  background: #000;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://firebasestorage.googleapis.com/v0/b/reactpfrodriguezdubar.appspot.com/o/img%2Fbg.jpg?alt=media&token=28c9c167-c821-4374-af67-88caa9daabf5&_gl=1*1rexklh*_ga*MTYwNjg5MTMyMC4xNjk4Mjc5NTg0*_ga_CW55HF8NVT*MTY5OTIxNDQ5OS45LjEuMTY5OTIxNTgxNi41NS4wLjA.');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position-y: 15%;
+  height: 100dvh;
+  /* color: #f8f8f8; */
+  text-align: center;
+}
