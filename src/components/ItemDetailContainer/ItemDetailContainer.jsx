@@ -1,35 +1,28 @@
-// Todo Falta, pero funciona
-
 import { useState, useEffect } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
-// import { getDoc, doc } from 'firebase/firestore';
-// import { db } from '../../services/config';
-import { getProduct } from '../../assets/mock/itemsmock'; // Todo: Reemplazar por local db
+import { getDoc, doc } from 'firebase/firestore';
+import { db } from '../../services/config';
 
 const ItemDetailContainer = () => {
-  const [producto, setProducto] = useState(null);
+  const [product, setProduct] = useState(null);
   const { idItem } = useParams();
 
   useEffect(() => {
-    // ToDo: Reemplazar por local db
-    /* const nuevoDoc = doc(db, "ReactPFRodriguezDubar", idItem);
+    const itemInfo = doc(db, "items", idItem);
 
-    getDoc(nuevoDoc)
+    getDoc(itemInfo)
       .then(res => {
         const data = res.data();
-        const nuevoProducto = { id: res.id, ...data }
-        setProducto(nuevoProducto);
+        const foundItemInfo = { id: res.id, ...data }
+        setProduct(foundItemInfo);
       })
       .catch(error => console.log(error))
-  }, [idItem]); */
-
-    getProduct(idItem).then((res) => setProducto(res));
   }, [idItem]);
 
   return (
     <div>
-      <ItemDetail {...producto} />
+      <ItemDetail {...product} />
     </div>
   );
 };

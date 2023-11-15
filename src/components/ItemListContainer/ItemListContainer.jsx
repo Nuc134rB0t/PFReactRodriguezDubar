@@ -1,36 +1,32 @@
 import { useState, useEffect } from 'react'; 
 import { useParams } from 'react-router-dom'; 
 import ItemList from '../ItemList/ItemList';
-// import { getProducts, getProductsCategory } from '../../assets/mock/itemsmock';
 import { getDocs, collection, where, query } from 'firebase/firestore'; 
 import { db } from '../../services/config';
 import PropTypes from 'prop-types';
 
 const ItemListContainer = ({ greeting, suggestion }) => {
-
-  const [productos, setProductos] = useState([]);
-
-  const { idCategoria } = useParams();
-
-  useEffect(() => {    
-    const misProductos = idCategoria ? query(collection(db, "ReactPFRodriguezDubar"), where("idCategoria", "==", idCategoria)) : collection(db, "items");
-    getDocs(misProductos)
+  const [showItems, setShowItems] = useState([]);
+  const { idCategory } = useParams();
+  
+  useEffect(() => {
+    const itemsList = idCategory ? query(collection(db, "items"), where("idCategory", "==", idCategory)) : collection(db, "items");
+    getDocs(itemsList)
             .then(res => {
-                const nuevosProductos = res.docs.map(doc => {
+                const itemsListResult = res.docs.map(doc => {
                     const data = doc.data()
                     return { id: doc.id, ...data }
                 })
-                setProductos(nuevosProductos);
+                setShowItems(itemsListResult);
             })
             .catch(error => console.log(error))
-  }, [idCategoria]);
-
+  }, [idCategory]);
 
   return (
     <>
       <h1>{greeting}</h1>
       <h2>{suggestion}</h2>
-      <ItemList productos={productos} />
+      <ItemList products={showItems} />
     </>
   );
 };

@@ -1,5 +1,3 @@
-// * Main app
-
 import './assets/styles/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
@@ -23,7 +21,7 @@ function App() {
 
             <Routes>
               <Route path='/' element={<ItemListContainer />} />
-              <Route path='/categoria/:idCategoria' element={<ItemListContainer />}/>
+              <Route path='/categoria/:idCategory' element={<ItemListContainer />}/>
               <Route path='/item/:idItem' element={<ItemDetailContainer />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />

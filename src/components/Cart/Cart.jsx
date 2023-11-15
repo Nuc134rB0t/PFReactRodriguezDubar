@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import CartItem from '../CartItem/CartItem';
 
 const Cart = () => {
-  const { cart, vaciarCart, total, cantidadTotal } = useContext(CartContext);
+  const { cart, emptyCart, total, totalQty } = useContext(CartContext);
 
-  if (cantidadTotal === 0) {
+  if (totalQty === 0) {
     return (
       <div className='card border-secondary mb-3'>
         <div className='card-body text-secondary'>
@@ -22,13 +22,13 @@ const Cart = () => {
 
   return (
     <div className='card border-secondary mb-3'>
-      {cart.map((producto) => (
-        <CartItem key={producto.id} {...producto} />
+      {cart.map(({ item, quantity }) => (
+        <CartItem key={item.id} item={item} quantity={quantity} />
       ))}
       <div className='card-body text-secondary'>
-        <h3>Productos: {cantidadTotal} </h3>
+        <h3>Productos: {totalQty} </h3>
         <h3>Total USD: {total} </h3>
-        <button className='btn btn-secondary' onClick={() => vaciarCart()}>
+        <button className='btn btn-secondary' onClick={() => emptyCart()}>
           {' '}
           Vaciar Carrito{' '}
         </button>

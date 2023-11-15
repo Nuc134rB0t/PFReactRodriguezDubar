@@ -1,10 +1,11 @@
-//* Listo!
-
+import React from 'react';
 import CartWidget from '../CartWidget/CartWidget';
 import styles from './NavBar.module.css';
 import { NavLink, Link } from 'react-router-dom';
 
+
 const NavBar = () => {
+  
   return (
     <header>
       <nav className='navbar navbar-expand-lg bg-light'>
@@ -47,19 +48,7 @@ const NavBar = () => {
                   Franelas
                 </NavLink>
               </li>
-              
             </ul>
-            <form className='d-flex' role='search'>
-              <input
-                className='form-control me-2'
-                type='search'
-                placeholder='Buscar'
-                aria-label='Search'
-              />
-              <button className='btn btn-outline-success' type='submit'>
-                Buscar
-              </button>
-            </form>
           </div>
         </div>
         <CartWidget />
